@@ -1,0 +1,11 @@
+[package]
+name = "nese"
+version = "0.1.0"
+authors = ["Matt McCoy <mattnenterprise@yahoo.com>"]
+
+[dependencies]
+image = "*"
+sdl2 = "0.31"
+portaudio = "0.7.0"
+time = "0.1"
+clap = "~2.31.2"

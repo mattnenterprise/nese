@@ -1613,7 +1613,7 @@ enum AddressingMode {
 }
 
 pub struct CPUMemory {
-    pub mapper: Rc<RefCell<Box<mapper::Mapper>>>,
+    pub mapper: Rc<RefCell<Box<dyn mapper::Mapper>>>,
     pub ram: [u8; 2048],
     pub ppu: Rc<RefCell<ppu::PPU<ppu::PPUMemory>>>,
     pub apu: Rc<RefCell<apu::APU>>,

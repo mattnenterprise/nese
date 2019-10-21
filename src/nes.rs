@@ -21,7 +21,7 @@ pub struct Nes {
     ppu_step_output: ppu::StepOutput,
     cpu_cycle_count: u64,
     apu_last_sample_time: u64,
-    mapper: Rc<RefCell<Box<mapper::Mapper>>>,
+    mapper: Rc<RefCell<Box<dyn mapper::Mapper>>>,
 }
 
 impl Nes {
@@ -47,7 +47,7 @@ impl Nes {
         });
         let rc_nametable_mirror = Rc::new(RefCell::new(nametable_mirror));
 
-        let m: Box<mapper::Mapper> = mapper::create_mapper(ines_data.mapper, ines_data.chr, ines_data.prg, Rc::clone(&rc_nametable_mirror));
+        let m: Box<dyn mapper::Mapper> = mapper::create_mapper(ines_data.mapper, ines_data.chr, ines_data.prg, Rc::clone(&rc_nametable_mirror));
         let mapper = Rc::new(RefCell::new(m));
         let ppu_memory = ppu::PPUMemory{
             mapper: Rc::clone(&mapper),

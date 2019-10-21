@@ -766,7 +766,7 @@ impl Mapper for Mapper7 {
 }
 
 
-pub fn create_mapper(mapper: u8, chr: Vec<u8>, prg: Vec<u8>, nametable_mirror_type: Rc<RefCell<Box<ppu::NametableMirroring>>>) -> Box<Mapper> {
+pub fn create_mapper(mapper: u8, chr: Vec<u8>, prg: Vec<u8>, nametable_mirror_type: Rc<RefCell<Box<ppu::NametableMirroring>>>) -> Box<dyn Mapper> {
     match mapper{
         0 => {
             return Box::new(Mapper0::new(chr, prg));

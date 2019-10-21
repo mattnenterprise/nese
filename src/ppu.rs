@@ -580,7 +580,7 @@ impl<T: Memory> PPU<T> {
             let y = self.oam_data[n*4];
             let attributes = self.oam_data[(n*4) + 2];
             let x = self.oam_data[(n*4) + 3];
-            let mut row = self.scanline.wrapping_sub(y as u16);
+            let row = self.scanline.wrapping_sub(y as u16);
             if row >= sprite_height {
                 continue
             }
@@ -816,7 +816,7 @@ fn horizontally_flip_bits(num: u8) -> u8 {
 }
 
 pub struct PPUMemory {
-    pub mapper: Rc<RefCell<Box<mapper::Mapper>>>,
+    pub mapper: Rc<RefCell<Box<dyn mapper::Mapper>>>,
     pub nametable_mirror: Rc<RefCell<Box<NametableMirroring>>>,
 }
 

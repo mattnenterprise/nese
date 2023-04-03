@@ -7,5 +7,5 @@ authors = ["Matt McCoy <mattnenterprise@yahoo.com>"]
 image = "*"
 sdl2 = "0.31"
 portaudio = "0.7.0"
-time = "0.1"
+time = "0.2"
 clap = "~2.31.2"
